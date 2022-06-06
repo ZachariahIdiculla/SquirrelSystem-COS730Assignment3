@@ -12,14 +12,38 @@ export class AppComponent{
   title = 'SquirrelSystem';
   @ViewChild('head') head: any;
   @ViewChild("addorder") addorder: any;
+  @ViewChild("manageorders") manageorders: any;
+  @ViewChild("inventory") inventory: any;
+  @ViewChild("managelabour") managelabour: any;
+
 
   clicked(evt : String){
-    if(evt != "add"){
-      this.addorder.nativeElement.style.display = 'none';
+    if(evt == "add"){
+      this.hideall()
+      this.addorder.nativeElement.style.display = 'flex'
     }
-    else{
-      this.addorder.nativeElement.style.display = 'flex';
+
+    if(evt == "mor"){
+      this.hideall()
+      this.manageorders.nativeElement.style.display = 'flex'
     }
+
+    if(evt == "inv"){
+      this.hideall()
+      this.inventory.nativeElement.style.display = 'flex'
+    }
+
+    if(evt == "mla"){
+      this.hideall()
+      this.managelabour.nativeElement.style.display = 'flex'
+    }
+  }
+
+  hideall(){
+    this.addorder.nativeElement.style.display = 'none';
+    this.manageorders.nativeElement.style.display = 'none';
+    this.managelabour.nativeElement.style.display = 'none';
+    this.inventory.nativeElement.style.display = 'none';
   }
 }
 

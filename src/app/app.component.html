@@ -2,6 +2,19 @@
 <div class="head">
 <app-header (clicked)="clicked($event)"></app-header>
 </div>
+
 <div class="addorder" #addorder>
-<app-addorder></app-addorder>
+    <app-addorder></app-addorder>
+</div>
+
+<div style="display: none;" class="manageorders" #manageorders>
+    <app-manageorders></app-manageorders>
+</div>
+
+<div style="display: none;" class="inventory" #inventory>
+    <app-inventory></app-inventory>
+</div>
+
+<div style="display: none;" class="managelabour" #managelabour>
+    <app-managelabour></app-managelabour>
 </div>

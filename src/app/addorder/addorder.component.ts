@@ -1,4 +1,6 @@
+import { OrderService } from 'src/app/order.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { response } from 'express';
 
 @Component({
   selector: 'app-addorder',
@@ -9,9 +11,9 @@ export class AddorderComponent implements OnInit {
   Items = ["Burger", "Hotdog", "Fries", "Cooldrink"]
   Prices = [40, 30, 20, 15, 44];
   total: number = 0
-  currentOrder: String = "| "
+  currentOrder: string = "| "
 
-  constructor() { }
+  constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
   }
@@ -21,4 +23,9 @@ export class AddorderComponent implements OnInit {
     this.total = this.total + this.Prices[itemNum];
   }
 
+  completeOrder(){
+    this.orderService.createOrder(this.currentOrder).subscribe((response: any) =>{
+      console.log(response)
+    });
+  }
 }

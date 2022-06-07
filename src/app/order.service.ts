@@ -15,14 +15,14 @@ export class OrderService {
     return this.webReqService.get('orders');
   }
   
-  createOrder(title: string) {
+  createOrder(orderItems: string) {
     // We want to send a web request to create a list
-    return this.webReqService.post('orders', { title });
+    return this.webReqService.post('orders', { orderItems });
   }
 
-  updateOrder(id: string, title: string) {
+  updateOrder(id: string, orderItems: string) {
     // We want to send a web request to update a list
-    return this.webReqService.patch(`orders/${id}`, { title });
+    return this.webReqService.patch(`orders/${id}`, { orderItems });
   }
 
   deleteOrder(id: string) {

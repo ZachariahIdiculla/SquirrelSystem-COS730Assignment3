@@ -9,6 +9,20 @@ const { Order } = require('./db/models/order.model');
 
 app.use(bodyParser.json());
 
+// CORS HEADERS MIDDLEWARE
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, HEAD, OPTIONS, PUT, PATCH, DELETE");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-access-token, x-refresh-token, _id");
+
+    res.header(
+        'Access-Control-Expose-Headers',
+        'x-access-token, x-refresh-token'
+    );
+
+    next();
+});
+
 app.get('/orders', (req,res) => {
     //Get array of all orders from DB
     Order.find({}).then((orders) => {
@@ -18,10 +32,10 @@ app.get('/orders', (req,res) => {
 
 app.post('/orders', (req,res) => {
     //Create a new order
-    let title = req.body.title;
+    let orderItems = req.body.orderItems;
 
     let newOrder = new Order({
-        title
+        orderItems
     });
     newOrder.save().then((orderDoc) => {
         res.send(orderDoc);

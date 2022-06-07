@@ -9,6 +9,8 @@ import { ManageordersComponent } from './manageorders/manageorders.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { ManagelabourComponent } from './managelabour/managelabour.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,8 @@ import { ManagelabourComponent } from './managelabour/managelabour.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

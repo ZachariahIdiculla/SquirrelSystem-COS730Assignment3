@@ -2,24 +2,28 @@
     <div class="addOrderContainer">
         <div class="items">
             <h1 class="title">
-                Items
+                | Items |
             </h1>
             <br>
-            <button type="button">{{ Item1 }} - R{{ Price1 }}</button>
+            <button (click)="click(0)" type="button">{{ Items[0] }} - R{{ Prices[0] }}</button>
             <br>
-            <button type="button">{{ Item2 }} - R{{ Price2 }}</button>
+            <button (click)="click(1)" type="button">{{ Items[1] }} - R{{ Prices[1] }}</button>
             <br>
-            <button type="button">{{ Item3 }} - R{{ Price3 }}</button>
+            <button (click)="click(2)" type="button">{{ Items[2] }} - R{{ Prices[2] }}</button>
             <br>
-            <button type="button">{{ Item4 }} - R{{ Price4 }}</button>
+            <button (click)="click(3)" type="button">{{ Items[3] }} - R{{ Prices[3] }}</button>
         </div>
 
         <div class="items-container">
             <h1 class="title">
-                Current Order
+                | Current Order |
             </h1>
+            {{ currentOrder }}
+            <br>
+            Current Total = R{{ total }}
         </div>
 
     </div>
-
+    
 </div>
+<button type="button">Complete Order</button>

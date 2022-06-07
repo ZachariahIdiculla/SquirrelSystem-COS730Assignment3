@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-addorder',
@@ -6,17 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./addorder.component.css']
 })
 export class AddorderComponent implements OnInit {
-  Item1: String = "Burger"
-  Item2: String = "Hotdog"
-  Item3: String = "Fries"
-  Item4: String = "Cooldrink"
-  Price1: Number = 40
-  Price2: Number = 30
-  Price3: Number = 20
-  Price4: Number = 15
+  Items = ["Burger", "Hotdog", "Fries", "Cooldrink"]
+  Prices = [40, 30, 20, 15, 44];
+  total: number = 0
+  currentOrder: String = "| "
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  click(itemNum : number){
+    this.currentOrder = this.currentOrder + this.Items[itemNum] + " | "
+    this.total = this.total + this.Prices[itemNum];
   }
 
 }

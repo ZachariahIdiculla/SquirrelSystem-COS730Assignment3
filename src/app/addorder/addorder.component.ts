@@ -2,6 +2,10 @@ import { OrderService } from 'src/app/order.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { response } from 'express';
 
+// PS C:\Users\zacha\Documents\Work\Honours\COS 730\Assignment 3\SquirrelSystem\api> nodemon app.js
+// (base) PS C:\Users\zacha\Documents\Work\Honours\COS 730\Assignment 3\SquirrelSystem> ng serve
+
+
 @Component({
   selector: 'app-addorder',
   templateUrl: './addorder.component.html',

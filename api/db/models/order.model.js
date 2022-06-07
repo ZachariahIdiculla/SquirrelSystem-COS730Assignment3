@@ -7,9 +7,9 @@ const OrderSchema = new mongoose.Schema({
         minlength: 1,
         trim: true
     },
-    completed: {
-        type: Boolean,
-        default: false
+    price: {
+        type: Number,
+        default: 0
     }
 })
 

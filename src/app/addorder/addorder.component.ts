@@ -28,7 +28,7 @@ export class AddorderComponent implements OnInit {
   }
 
   completeOrder(){
-    this.orderService.createOrder(this.currentOrder).subscribe((response: any) =>{
+    this.orderService.createOrder(this.currentOrder,this.total).subscribe((response: any) =>{
       console.log(response)
     });
   }

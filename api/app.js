@@ -33,9 +33,11 @@ app.get('/orders', (req,res) => {
 app.post('/orders', (req,res) => {
     //Create a new order
     let orderItems = req.body.orderItems;
+    let price = req.body.price;
 
     let newOrder = new Order({
-        orderItems
+        orderItems,
+        price
     });
     newOrder.save().then((orderDoc) => {
         res.send(orderDoc);
@@ -57,7 +59,6 @@ app.delete('/orders/:id', (req,res) => {
         _id: req.params.id
     }).then((removedListDoc) => {
         res.send(removedListDoc);
-        deleteTasksFromList(removedListDoc._id);
     })
 })
 

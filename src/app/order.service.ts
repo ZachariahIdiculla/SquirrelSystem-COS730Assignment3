@@ -15,9 +15,9 @@ export class OrderService {
     return this.webReqService.get('orders');
   }
   
-  createOrder(orderItems: string) {
+  createOrder(orderItems: string, price: Number) {
     // We want to send a web request to create a list
-    return this.webReqService.post('orders', { orderItems });
+    return this.webReqService.post('orders', { orderItems,price });
   }
 
   updateOrder(id: string, orderItems: string) {

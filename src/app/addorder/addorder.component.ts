@@ -1,5 +1,7 @@
+import { MenuitemsComponent } from './../menuitems/menuitems.component';
 import { OrderService } from 'src/app/order.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { InventoryService } from '../inventory.service';
+import { Component, OnInit, ViewChild, ViewContainerRef  } from '@angular/core';
 import { response } from 'express';
 
 // PS C:\Users\zacha\Documents\Work\Honours\COS 730\Assignment 3\SquirrelSystem\api> nodemon app.js
@@ -17,9 +19,21 @@ export class AddorderComponent implements OnInit {
   total: number = 0
   currentOrder: string = "| "
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService, private viewContainerRef: ViewContainerRef, private inventoryService: InventoryService) { }
 
   ngOnInit(): void {
+    this.inventoryService.getInventory().subscribe((response : any) =>{
+      this.outputMenuItems(response)
+    });
+  }
+
+  outputMenuItems(inventory : any){
+    for(let i = 0;i < inventory.length; i++ ){
+      let inventoryComponent = this.viewContainerRef.createComponent(MenuitemsComponent);
+      inventoryComponent.instance.itemName = inventory[i]["itemName"]
+      inventoryComponent.instance.itemPrice = inventory[i]["price"]
+      inventoryComponent.instance.itemID = inventory[i]["_id"]
+    }
   }
 
   click(itemNum : number){

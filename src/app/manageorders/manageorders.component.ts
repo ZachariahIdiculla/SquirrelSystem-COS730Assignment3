@@ -30,7 +30,6 @@ export class ManageordersComponent implements OnInit {
       orderComponent.instance.orderPrice = orders[i]["price"]
       orderComponent.instance.orderID = orders[i]["_id"]
     }
-
   }
 
 }

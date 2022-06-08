@@ -10,6 +10,7 @@ import { InventoryComponent } from './inventory/inventory.component';
 
 import { CreatedorderComponent } from './createdorder/createdorder.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MenuitemsComponent } from './menuitems/menuitems.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     AddorderComponent,
     ManageordersComponent,
     InventoryComponent,
-    CreatedorderComponent
+    CreatedorderComponent,
+    MenuitemsComponent
   ],
   imports: [
     BrowserModule,

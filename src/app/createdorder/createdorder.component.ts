@@ -6,7 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./createdorder.component.css']
 })
 export class CreatedorderComponent implements OnInit {
-  @Input() orderDetails: string | undefined;
+  @Input() orderItems: string | undefined;
+  @Input() orderPrice: number | undefined;
+  @Input() orderID: string | undefined;
 
   constructor() {
     

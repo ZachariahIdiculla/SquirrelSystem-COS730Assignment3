@@ -10,16 +10,28 @@ import { CreatedorderComponent } from '../createdorder/createdorder.component';
 })
 export class ManageordersComponent implements OnInit {
   @ViewChild('appenHere') head: any;
+  output: any;
+  
 
   constructor(private orderService: OrderService, private viewContainerRef: ViewContainerRef) { }
 
   ngOnInit(): void {
-    this.orderService.getOrders().subscribe((response: any) =>{
-      console.log(response)
+    output : JSON;
+    this.orderService.getOrders().subscribe((response : any) =>{
+      this.outputOrders(response)
     });
-    let cmpref = this.viewContainerRef.createComponent(CreatedorderComponent);
-    cmpref.instance.orderDetails = "test"
-    this.viewContainerRef.createComponent(CreatedorderComponent);
+   
+  }
+
+  outputOrders(orders : any){
+    for(let i = 0;i < orders.length; i++ ){
+      console.log(orders[i])
+      let orderComponent = this.viewContainerRef.createComponent(CreatedorderComponent);
+      orderComponent.instance.orderItems = orders[i]["orderItems"]
+      orderComponent.instance.orderPrice = orders[i]["price"]
+      orderComponent.instance.orderID = orders[i]["_id"]
+    }
+
   }
 
 }

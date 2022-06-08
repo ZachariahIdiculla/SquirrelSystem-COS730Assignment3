@@ -2,4 +2,5 @@
     outline-style: solid;
     display: block;
     border-right: 10%;
+    background: linear-gradient(to right bottom, cyan, rgb(97, 47, 163));
 }

@@ -6,6 +6,7 @@ const { mongoose } = require('./db/mongoose');
 const bodyParser = require('body-parser')
 
 const { Order } = require('./db/models/order.model');
+const { Inventory } = require('./db/models/inventory.model');
 
 app.use(bodyParser.json());
 
@@ -30,6 +31,13 @@ app.get('/orders', (req,res) => {
     });
 })
 
+app.get('/inventory', (req,res) => {
+    //Get array of all orders from DB
+    Inventory.find({}).then((inventory) => {
+        res.send(inventory)
+    });
+})
+
 app.post('/orders', (req,res) => {
     //Create a new order
     let orderItems = req.body.orderItems;
@@ -41,6 +49,20 @@ app.post('/orders', (req,res) => {
     });
     newOrder.save().then((orderDoc) => {
         res.send(orderDoc);
+    }) 
+});
+
+app.post('/inventory', (req,res) => {
+    //Create a new inventory
+    let itemName = req.body.itemName;
+    let price = req.body.price;
+
+    let newItem = new Inventory({
+        itemName,
+        price
+    });
+    newItem.save().then((inventoryDoc) => {
+        res.send(inventoryDoc);
     }) 
 });
 

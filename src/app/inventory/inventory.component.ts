@@ -1,3 +1,4 @@
+import { InventoryService } from './../inventory.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,16 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InventoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private inventoryService : InventoryService) { }
 
   ngOnInit(): void {
+    this.inventoryService.getInventory().subscribe((response : any) =>{
+      console.log(response)
+    });
   }
 
   addItem(){
     var nameValue = (<HTMLInputElement>document.getElementById("itemName")).value;
     var priceValue = (<HTMLInputElement>document.getElementById("price")).value;
-    console.log(nameValue)
-    console.log(priceValue)
+    var price: number = +priceValue;
+    this.inventoryService.createItem(nameValue,price).subscribe((response: any) =>{
+      console.log(response)
+    });
   }
 
 }

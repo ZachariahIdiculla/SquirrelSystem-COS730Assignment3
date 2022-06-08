@@ -31,5 +31,6 @@ export class AddorderComponent implements OnInit {
     this.orderService.createOrder(this.currentOrder,this.total).subscribe((response: any) =>{
       console.log(response)
     });
+    window.location.reload();
   }
 }

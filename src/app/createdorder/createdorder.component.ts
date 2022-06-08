@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { OrderService } from 'src/app/order.service';
 
 @Component({
   selector: 'app-createdorder',
@@ -10,11 +11,19 @@ export class CreatedorderComponent implements OnInit {
   @Input() orderPrice: number | undefined;
   @Input() orderID: string | undefined;
 
-  constructor() {
+  constructor(private orderService: OrderService) {
     
   }
 
   ngOnInit(): void {
+  }
+
+  deleteButton(){
+    let DeleteMe = this.orderID!
+    this.orderService.deleteOrder(DeleteMe).subscribe((response : any) =>{
+      console.log(response)
+    });
+    window.location.reload();
   }
 
 }

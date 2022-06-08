@@ -25,7 +25,6 @@ export class ManageordersComponent implements OnInit {
 
   outputOrders(orders : any){
     for(let i = 0;i < orders.length; i++ ){
-      console.log(orders[i])
       let orderComponent = this.viewContainerRef.createComponent(CreatedorderComponent);
       orderComponent.instance.orderItems = orders[i]["orderItems"]
       orderComponent.instance.orderPrice = orders[i]["price"]

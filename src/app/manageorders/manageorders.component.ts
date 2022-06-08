@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { OrderService } from 'src/app/order.service';
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { response } from 'express';
+import { CreatedorderComponent } from '../createdorder/createdorder.component';
 
 @Component({
   selector: 'app-manageorders',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manageorders.component.css']
 })
 export class ManageordersComponent implements OnInit {
+  @ViewChild('appenHere') head: any;
 
-  constructor() { }
+  constructor(private orderService: OrderService, private viewContainerRef: ViewContainerRef) { }
 
   ngOnInit(): void {
+    this.orderService.getOrders().subscribe((response: any) =>{
+      console.log(response)
+    });
+    let cmpref = this.viewContainerRef.createComponent(CreatedorderComponent);
+    cmpref.instance.orderDetails = "test"
+    this.viewContainerRef.createComponent(CreatedorderComponent);
   }
 
 }

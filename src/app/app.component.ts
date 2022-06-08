@@ -14,8 +14,6 @@ export class AppComponent{
   @ViewChild("addorder") addorder: any;
   @ViewChild("manageorders") manageorders: any;
   @ViewChild("inventory") inventory: any;
-  @ViewChild("managelabour") managelabour: any;
-
 
   clicked(evt : String){
     if(evt == "add"){
@@ -35,14 +33,12 @@ export class AppComponent{
 
     if(evt == "mla"){
       this.hideall()
-      this.managelabour.nativeElement.style.display = 'flex'
     }
   }
 
   hideall(){
     this.addorder.nativeElement.style.display = 'none';
     this.manageorders.nativeElement.style.display = 'none';
-    this.managelabour.nativeElement.style.display = 'none';
     this.inventory.nativeElement.style.display = 'none';
   }
 }

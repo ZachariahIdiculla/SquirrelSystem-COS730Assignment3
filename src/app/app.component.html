@@ -1,3 +1,4 @@
+<html style="background-color:Tomato;">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <div class="head">
 <app-header (clicked)="clicked($event)"></app-header>
@@ -6,7 +7,9 @@
 <div class="addorder" #addorder>
     <app-addorder></app-addorder>
 </div>
-
+<br>
+<br>
+<br>
 <div class="manageorders" #manageorders>
     <app-manageorders></app-manageorders>
 </div>
@@ -14,3 +17,4 @@
 <div style="display: none;" class="inventory" #inventory>
     <app-inventory></app-inventory>
 </div>
+</html>

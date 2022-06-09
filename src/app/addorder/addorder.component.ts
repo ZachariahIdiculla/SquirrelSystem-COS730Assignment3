@@ -52,4 +52,9 @@ export class AddorderComponent implements OnInit {
     });
     window.location.reload();
   }
+
+  clearOrder(){
+    this.total = 0
+    this.currentOrder = "| "
+  }
 }

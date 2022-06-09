@@ -33,6 +33,10 @@ export class AddorderComponent implements OnInit {
       inventoryComponent.instance.itemName = inventory[i]["itemName"]
       inventoryComponent.instance.itemPrice = inventory[i]["price"]
       inventoryComponent.instance.itemID = inventory[i]["_id"]
+      inventoryComponent.instance.clickedMenuItem.subscribe(() => {
+        this.currentOrder = this.currentOrder + inventory[i]["itemName"] + " | "
+        this.total = this.total + inventory[i]["price"];
+      });
     }
   }
 
@@ -40,6 +44,7 @@ export class AddorderComponent implements OnInit {
     this.currentOrder = this.currentOrder + this.Items[itemNum] + " | "
     this.total = this.total + this.Prices[itemNum];
   }
+
 
   completeOrder(){
     this.orderService.createOrder(this.currentOrder,this.total).subscribe((response: any) =>{

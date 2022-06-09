@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { InventoryService } from '../inventory.service';
 
 @Component({
@@ -10,10 +10,19 @@ export class MenuitemsComponent implements OnInit {
   @Input() itemName: string | undefined;
   @Input() itemPrice: number | undefined;
   @Input() itemID: string | undefined;
+  @Output() clickedMenuItem: EventEmitter<any> = new EventEmitter();
 
   constructor(private inventoryService: InventoryService) { }
 
   ngOnInit(): void {
+  }
+
+  clickMenuItem(){
+    const otp = {
+      "itemName":this.itemName,
+      "itemPrice":this.itemPrice
+    }
+    this.clickedMenuItem.emit("test")
   }
 
 }

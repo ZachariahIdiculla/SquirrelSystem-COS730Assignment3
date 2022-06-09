@@ -12,7 +12,6 @@ export class InventoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.inventoryService.getInventory().subscribe((response : any) =>{
-      console.log(response)
     });
   }
 

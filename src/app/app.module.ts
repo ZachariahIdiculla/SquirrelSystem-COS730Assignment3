@@ -7,7 +7,6 @@ import { HeaderComponent } from './header/header.component';
 import { AddorderComponent } from './addorder/addorder.component';
 import { ManageordersComponent } from './manageorders/manageorders.component';
 import { InventoryComponent } from './inventory/inventory.component';
-
 import { CreatedorderComponent } from './createdorder/createdorder.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuitemsComponent } from './menuitems/menuitems.component';

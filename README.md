@@ -1,4 +1,4 @@
-The Squirrel System is a POS system. The functionalities to add orders, manage orders and manage inventory <br/>
+The Squirrel System is a POS system. There are functionalities to add orders, manage orders and manage inventory <br/>
 
 Zachariah Idiculla <br/>
 u17067210 <br/>

@@ -21,4 +21,16 @@ describe('AddorderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should clear an order', () => {
+    expect(component.clearOrder).not.toEqual(null);
+  });
+
+  it('should complete an order', () => {
+    expect(component.completeOrder).not.toEqual(null);
+  });
+
+  it('should output menu items', () => {
+    expect(component.outputMenuItems).not.toEqual(null);
+  });
 });

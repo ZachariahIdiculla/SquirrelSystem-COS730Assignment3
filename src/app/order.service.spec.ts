@@ -15,4 +15,16 @@ describe('OrderService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should create an order', () => {
+    expect(service.createOrder).not.toEqual(null);
+  });
+
+  it('should create delete an order', () => {
+    expect(service.deleteOrder).not.toEqual(null);
+  });
+
+  it('should get the orders', () => {
+    expect(service.getOrders).not.toEqual(null);
+  });
 });

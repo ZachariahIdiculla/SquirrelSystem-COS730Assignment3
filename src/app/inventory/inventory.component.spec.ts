@@ -21,4 +21,8 @@ describe('InventoryComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should output menu items', () => {
+    expect(component.outputMenuItems).not.toEqual(null);
+  });
 });

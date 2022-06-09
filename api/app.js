@@ -66,14 +66,6 @@ app.post('/inventory', (req,res) => {
     }) 
 });
 
-app.patch('/orders/:id', (req,res) => {
-    //Update an order
-    Order.findOneAndUpdate({ _id: req.params.id}, {
-        $set: req.body
-    }).then(() => {
-        res.sendStatus(200);
-    });
-});
 
 app.delete('/orders/:id', (req,res) => {
     //Delete an order

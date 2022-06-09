@@ -21,4 +21,8 @@ describe('ManageordersComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should output orders', () => {
+    expect(component.outputOrders).not.toEqual(null);
+  });
 });

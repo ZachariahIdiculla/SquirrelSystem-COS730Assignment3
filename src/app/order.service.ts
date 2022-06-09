@@ -20,10 +20,6 @@ export class OrderService {
     return this.webReqService.post('orders', { orderItems,price });
   }
 
-  updateOrder(id: string, orderItems: string) {
-    // We want to send a web request to update a list
-    return this.webReqService.patch(`orders/${id}`, { orderItems });
-  }
 
   deleteOrder(id: string) {
     return this.webReqService.delete(`orders/${id}`);

@@ -84,6 +84,15 @@ app.delete('/orders/:id', (req,res) => {
     })
 })
 
+app.delete('/inventory/:id', (req,res) => {
+    //Delete an order
+    Inventory.findOneAndRemove({
+        _id: req.params.id
+    }).then((removedListDoc) => {
+        res.send(removedListDoc);
+    })
+})
+
 app.listen(3000, () => {
     console.log("Server on port 3000")
 })

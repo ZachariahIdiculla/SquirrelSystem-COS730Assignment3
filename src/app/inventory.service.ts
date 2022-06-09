@@ -16,4 +16,8 @@ export class InventoryService {
     // We want to send a web request to create a list
     return this.webReqService.post('inventory', { itemName,price });
   }
+
+  deleteItem(id: string) {
+    return this.webReqService.delete(`inventory/${id}`);
+  }
 }
